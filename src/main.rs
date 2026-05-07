@@ -1,16 +1,18 @@
+mod daemon;
 mod document;
 mod engine;
 mod index;
-mod tokenizer;
 mod logger;
+mod tokenizer;
 
 use anyhow::Result;
 use clap::{Parser, Subcommand};
 
+use daemon::run_daemon;
 use engine::SearchEngine;
 use index::{read_documents, SearchIndex};
-use tokenizer::create_kiwi;
 use logger::set_debug_log;
+use tokenizer::create_kiwi;
 
 #[derive(Parser)]
 struct Cli {
@@ -39,6 +41,11 @@ enum Command {
         index: String,
 
         query: String,
+    },
+
+    Daemon {
+        #[arg(short, long)]
+        index: String,
     },
 }
 
@@ -88,6 +95,15 @@ fn main() -> Result<()> {
                 .collect();
 
             println!("{}", serde_json::to_string_pretty(&output)?);
+        }
+
+        Command::Daemon { index } => {
+            let index = SearchIndex::load(&index)?;
+            debug_log!("loaded index");
+
+            let engine = SearchEngine::new(kiwi, index);
+
+            run_daemon(engine)?;
         }
     }
 

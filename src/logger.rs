@@ -1,6 +1,6 @@
 use std::sync::{
-    Mutex,
     atomic::{AtomicBool, Ordering},
+    Mutex,
 };
 use std::time::Instant;
 
@@ -59,4 +59,3 @@ macro_rules! debug_log {
           crate::logger::debug_log_message(format_args!($($arg)*))
       };
   }
-

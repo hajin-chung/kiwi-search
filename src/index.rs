@@ -125,4 +125,3 @@ pub fn read_documents(path: &str) -> Result<Vec<Value>> {
     let reader = BufReader::new(file);
     Ok(serde_json::from_reader(reader)?)
 }
-
