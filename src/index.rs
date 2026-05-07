@@ -3,8 +3,9 @@ use std::{collections::HashMap, fs::File, io::BufReader};
 use anyhow::Result;
 use kiwi_rs::{Kiwi, Token};
 use serde::{Deserialize, Serialize};
+use serde_json::Value;
 
-use crate::document::{Document, TokenizedDocument};
+use crate::document::TokenizedDocument;
 use crate::tokenizer::should_keep_token;
 
 #[derive(Deserialize, Serialize, Clone, Debug)]
@@ -15,6 +16,7 @@ pub struct Posting {
 
 #[derive(Deserialize, Serialize, Clone, Debug)]
 pub struct SearchIndex {
+    pub search_field: String,
     pub corpus: Vec<TokenizedDocument>,
     pub inverted_index: HashMap<String, Vec<Posting>>,
     pub avgdl: f32,
@@ -23,14 +25,19 @@ pub struct SearchIndex {
 }
 
 impl SearchIndex {
-    pub fn build(tokenizer: &Kiwi, documents: Vec<Document>) -> Result<Self> {
+    pub fn build(tokenizer: &Kiwi, documents: Vec<Value>, search_field: String) -> Result<Self> {
         let mut corpus = Vec::new();
         let mut inverted_index: HashMap<String, Vec<Posting>> = HashMap::new();
         let mut total_len = 0usize;
 
         for (doc_idx, doc) in documents.iter().enumerate() {
+            let text = doc
+                .get(&search_field)
+                .and_then(|value| value.as_str())
+                .unwrap_or("");
+
             let tokens: Vec<Token> = tokenizer
-                .tokenize(&doc.content)?
+                .tokenize(text)?
                 .into_iter()
                 .filter(should_keep_token)
                 .collect();
@@ -39,7 +46,7 @@ impl SearchIndex {
             total_len += token_len;
 
             corpus.push(TokenizedDocument {
-                doc: doc.clone(),
+                source: doc.clone(),
                 token_len,
             });
 
@@ -63,6 +70,7 @@ impl SearchIndex {
         };
 
         Ok(Self {
+            search_field,
             corpus,
             inverted_index,
             avgdl,
@@ -84,7 +92,7 @@ impl SearchIndex {
     }
 }
 
-pub fn read_documents(path: &str) -> Result<Vec<Document>> {
+pub fn read_documents(path: &str) -> Result<Vec<Value>> {
     let file = File::open(path)?;
     let reader = BufReader::new(file);
     Ok(serde_json::from_reader(reader)?)

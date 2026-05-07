@@ -2,8 +2,8 @@ use std::collections::HashMap;
 
 use anyhow::Result;
 use kiwi_rs::{Kiwi, Token};
+use serde_json::Value;
 
-use crate::document::Document;
 use crate::index::SearchIndex;
 use crate::tokenizer::should_keep_token;
 
@@ -17,7 +17,7 @@ impl SearchEngine {
         Self { tokenizer, index }
     }
 
-    pub fn search(&self, query: &str) -> Result<Vec<(f32, Document)>> {
+    pub fn search(&self, query: &str) -> Result<Vec<(f32, Value)>> {
         if self.index.corpus.is_empty() || self.index.avgdl == 0.0 {
             return Ok(Vec::new());
         }
@@ -55,10 +55,10 @@ impl SearchEngine {
             }
         }
 
-        let mut results: Vec<(f32, Document)> = scores
+        let mut results: Vec<(f32, Value)> = scores
             .into_iter()
             .map(|(doc_idx, score)| {
-                let doc = self.index.corpus[doc_idx].doc.clone();
+                let doc = self.index.corpus[doc_idx].source.clone();
                 (score, doc)
             })
             .collect();

@@ -24,6 +24,9 @@ enum Command {
 
         #[arg(short, long)]
         output: String,
+
+        #[arg(short, long)]
+        field: String,
     },
 
     Search {
@@ -40,9 +43,13 @@ fn main() -> Result<()> {
     let kiwi = create_kiwi()?;
 
     match cli.command {
-        Command::Build { input, output } => {
+        Command::Build {
+            input,
+            output,
+            field,
+        } => {
             let documents = read_documents(&input)?;
-            let index = SearchIndex::build(&kiwi, documents)?;
+            let index = SearchIndex::build(&kiwi, documents, field)?;
             index.save_json(&output)?;
 
             println!("Index built: {}", output);
@@ -52,9 +59,19 @@ fn main() -> Result<()> {
             let index = SearchIndex::load_json(&index)?;
             let engine = SearchEngine::new(kiwi, index);
 
-            for (score, doc) in engine.search(&query)? {
-                println!("score: {:.4} | {} | {}", score, doc.id, doc.content);
-            }
+            let results = engine.search(&query)?;
+
+            let output: Vec<_> = results
+                .into_iter()
+                .map(|(score, document)| {
+                    serde_json::json!({
+                        "score": score,
+                        "document": document
+                    })
+                })
+                .collect();
+
+            println!("{}", serde_json::to_string_pretty(&output)?);
         }
     }
 
