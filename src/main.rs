@@ -2,6 +2,7 @@ mod document;
 mod engine;
 mod index;
 mod tokenizer;
+mod logger;
 
 use anyhow::Result;
 use clap::{Parser, Subcommand};
@@ -9,9 +10,13 @@ use clap::{Parser, Subcommand};
 use engine::SearchEngine;
 use index::{read_documents, SearchIndex};
 use tokenizer::create_kiwi;
+use logger::set_debug_log;
 
 #[derive(Parser)]
 struct Cli {
+    #[arg(long, global = true)]
+    debug: bool,
+
     #[command(subcommand)]
     command: Command,
 }
@@ -40,7 +45,11 @@ enum Command {
 fn main() -> Result<()> {
     let cli = Cli::parse();
 
+    set_debug_log(cli.debug);
+    debug_log!("kiwi search");
+
     let kiwi = create_kiwi()?;
+    debug_log!("created kiwi tokenizer");
 
     match cli.command {
         Command::Build {
@@ -49,17 +58,24 @@ fn main() -> Result<()> {
             field,
         } => {
             let documents = read_documents(&input)?;
+            debug_log!("loaded documents, count={}", documents.len());
+
             let index = SearchIndex::build(&kiwi, documents, field)?;
+            debug_log!("built index");
+
             index.save(&output)?;
+            debug_log!("saved index to {}", output);
 
             println!("Index built: {}", output);
         }
 
         Command::Search { index, query } => {
             let index = SearchIndex::load(&index)?;
-            let engine = SearchEngine::new(kiwi, index);
+            debug_log!("loaded index");
 
+            let engine = SearchEngine::new(kiwi, index);
             let results = engine.search(&query)?;
+            debug_log!("searched, results={}", results.len());
 
             let output: Vec<_> = results
                 .into_iter()
