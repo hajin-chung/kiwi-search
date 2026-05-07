@@ -1,14 +1,14 @@
 mod document;
-mod tokenizer;
-mod index;
 mod engine;
+mod index;
+mod tokenizer;
 
 use anyhow::Result;
 use clap::{Parser, Subcommand};
 
-use tokenizer::create_kiwi;
-use index::{SearchIndex, read_documents};
 use engine::SearchEngine;
+use index::{read_documents, SearchIndex};
+use tokenizer::create_kiwi;
 
 #[derive(Parser)]
 struct Cli {

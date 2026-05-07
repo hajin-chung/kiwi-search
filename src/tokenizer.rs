@@ -14,4 +14,3 @@ pub fn should_keep_token(tok: &Token) -> bool {
         "NNG" | "NNP" | "SL" | "SN" | "VV" | "VA" | "MAG" | "XR"
     )
 }
-

@@ -68,4 +68,3 @@ impl SearchEngine {
         Ok(results)
     }
 }
-
