@@ -79,6 +79,22 @@ impl SearchIndex {
         })
     }
 
+    pub fn save(&self, path: &str) -> anyhow::Result<()> {
+        if path.ends_with(".msgpack") || path.ends_with(".mpack") {
+            self.save_msgpack(path)
+        } else {
+            self.save_json(path)
+        }
+    }
+
+    pub fn load(path: &str) -> anyhow::Result<Self> {
+        if path.ends_with(".msgpack") || path.ends_with(".mpack") {
+            Self::load_msgpack(path)
+        } else {
+            Self::load_json(path)
+        }
+    }
+
     pub fn save_json(&self, path: &str) -> Result<()> {
         let file = File::create(path)?;
         serde_json::to_writer_pretty(file, self)?;
@@ -90,6 +106,18 @@ impl SearchIndex {
         let reader = BufReader::new(file);
         Ok(serde_json::from_reader(reader)?)
     }
+
+    pub fn save_msgpack(&self, path: &str) -> anyhow::Result<()> {
+        let mut file = File::create(path)?;
+        rmp_serde::encode::write(&mut file, self)?;
+        Ok(())
+    }
+
+    pub fn load_msgpack(path: &str) -> anyhow::Result<Self> {
+        let file = File::open(path)?;
+        let reader = BufReader::new(file);
+        Ok(rmp_serde::decode::from_read(reader)?)
+    }
 }
 
 pub fn read_documents(path: &str) -> Result<Vec<Value>> {
@@ -97,3 +125,4 @@ pub fn read_documents(path: &str) -> Result<Vec<Value>> {
     let reader = BufReader::new(file);
     Ok(serde_json::from_reader(reader)?)
 }
+

@@ -50,13 +50,13 @@ fn main() -> Result<()> {
         } => {
             let documents = read_documents(&input)?;
             let index = SearchIndex::build(&kiwi, documents, field)?;
-            index.save_json(&output)?;
+            index.save(&output)?;
 
             println!("Index built: {}", output);
         }
 
         Command::Search { index, query } => {
-            let index = SearchIndex::load_json(&index)?;
+            let index = SearchIndex::load(&index)?;
             let engine = SearchEngine::new(kiwi, index);
 
             let results = engine.search(&query)?;
