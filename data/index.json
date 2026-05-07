@@ -1,150 +1,253 @@
 {
+  "search_field": "title",
   "corpus": [
     {
-      "doc": {
+      "source": {
         "id": "1",
-        "content": "운영체제 공부법 정리"
+        "title": "운영체제 공부법 정리"
       },
       "token_len": 5
     },
     {
-      "doc": {
+      "source": {
         "id": "2",
-        "content": "Rust로 검색엔진 구현하기"
+        "title": "Rust로 검색엔진 구현하기"
       },
       "token_len": 4
     },
     {
-      "doc": {
+      "source": {
         "id": "3",
-        "content": "인터럽트와 시스템콜의 차이"
+        "title": "인터럽트와 시스템콜의 차이"
       },
       "token_len": 4
     },
     {
-      "doc": {
+      "source": {
         "id": "4",
-        "content": "리눅스 프로세스 스케줄링 이해"
+        "title": "리눅스 프로세스 스케줄링 이해"
       },
       "token_len": 5
     },
     {
-      "doc": {
+      "source": {
         "id": "5",
-        "content": "데이터베이스 인덱스 구조 분석"
+        "title": "데이터베이스 인덱스 구조 분석"
       },
       "token_len": 4
     },
     {
-      "doc": {
+      "source": {
         "id": "6",
-        "content": "Kiwi 형태소 분석기 사용기"
+        "title": "Kiwi 형태소 분석기 사용기"
       },
       "token_len": 4
     },
     {
-      "doc": {
+      "source": {
         "id": "7",
-        "content": "BM25 알고리즘 구현 메모"
+        "title": "BM25 알고리즘 구현 메모"
       },
       "token_len": 5
     },
     {
-      "doc": {
+      "source": {
         "id": "8",
-        "content": "Rust async runtime 비교"
+        "title": "Rust async runtime 비교"
       },
       "token_len": 4
     },
     {
-      "doc": {
+      "source": {
         "id": "9",
-        "content": "운영체제 인터럽트 처리 과정"
+        "title": "운영체제 인터럽트 처리 과정"
       },
       "token_len": 5
     },
     {
-      "doc": {
+      "source": {
         "id": "10",
-        "content": "검색엔진 inverted index 만들기"
+        "title": "검색엔진 inverted index 만들기"
       },
       "token_len": 5
     },
     {
-      "doc": {
+      "source": {
         "id": "11",
-        "content": "MeCab과 Kiwi 성능 비교"
+        "title": "MeCab과 Kiwi 성능 비교"
       },
       "token_len": 4
     },
     {
-      "doc": {
+      "source": {
         "id": "12",
-        "content": "파일시스템 캐시 동작 원리"
+        "title": "파일시스템 캐시 동작 원리"
       },
       "token_len": 5
     },
     {
-      "doc": {
+      "source": {
         "id": "13",
-        "content": "OpenGL 렌더링 파이프라인 정리"
+        "title": "OpenGL 렌더링 파이프라인 정리"
       },
       "token_len": 4
     },
     {
-      "doc": {
+      "source": {
         "id": "14",
-        "content": "GPU 기반 Vulkan compute 실험"
+        "title": "GPU 기반 Vulkan compute 실험"
       },
       "token_len": 5
     },
     {
-      "doc": {
+      "source": {
         "id": "15",
-        "content": "Tantivy로 만드는 Rust 검색 시스템"
+        "title": "Tantivy로 만드는 Rust 검색 시스템"
       },
       "token_len": 4
     },
     {
-      "doc": {
+      "source": {
         "id": "16",
-        "content": "운영체제 메모리 관리 기초"
+        "title": "운영체제 메모리 관리 기초"
       },
       "token_len": 5
     },
     {
-      "doc": {
+      "source": {
         "id": "17",
-        "content": "BM25와 TF-IDF의 차이점"
+        "title": "BM25와 TF-IDF의 차이점"
       },
       "token_len": 5
     },
     {
-      "doc": {
+      "source": {
         "id": "18",
-        "content": "Kiwi tokenizer 내부 구조 분석"
+        "title": "Kiwi tokenizer 내부 구조 분석"
       },
       "token_len": 5
     },
     {
-      "doc": {
+      "source": {
         "id": "19",
-        "content": "Rust HashMap 성능 최적화"
+        "title": "Rust HashMap 성능 최적화"
       },
       "token_len": 4
     },
     {
-      "doc": {
+      "source": {
         "id": "20",
-        "content": "검색엔진 랭킹 알고리즘 실험"
+        "title": "검색엔진 랭킹 알고리즘 실험"
       },
       "token_len": 5
     }
   ],
   "inverted_index": {
-    "렌더링": [
+    "프로세스": [
       {
-        "doc_idx": 12,
+        "doc_idx": 3,
+        "term_frequency": 1
+      }
+    ],
+    "이해": [
+      {
+        "doc_idx": 3,
+        "term_frequency": 1
+      }
+    ],
+    "compute": [
+      {
+        "doc_idx": 13,
+        "term_frequency": 1
+      }
+    ],
+    "TF": [
+      {
+        "doc_idx": 16,
+        "term_frequency": 1
+      }
+    ],
+    "내부": [
+      {
+        "doc_idx": 17,
+        "term_frequency": 1
+      }
+    ],
+    "알고리즘": [
+      {
+        "doc_idx": 6,
+        "term_frequency": 1
+      },
+      {
+        "doc_idx": 19,
+        "term_frequency": 1
+      }
+    ],
+    "과정": [
+      {
+        "doc_idx": 8,
+        "term_frequency": 1
+      }
+    ],
+    "inverted": [
+      {
+        "doc_idx": 9,
+        "term_frequency": 1
+      }
+    ],
+    "Kiwi": [
+      {
+        "doc_idx": 5,
+        "term_frequency": 1
+      },
+      {
+        "doc_idx": 10,
+        "term_frequency": 1
+      },
+      {
+        "doc_idx": 17,
+        "term_frequency": 1
+      }
+    ],
+    "운영": [
+      {
+        "doc_idx": 0,
+        "term_frequency": 1
+      },
+      {
+        "doc_idx": 8,
+        "term_frequency": 1
+      },
+      {
+        "doc_idx": 15,
+        "term_frequency": 1
+      }
+    ],
+    "async": [
+      {
+        "doc_idx": 7,
+        "term_frequency": 1
+      }
+    ],
+    "runtime": [
+      {
+        "doc_idx": 7,
+        "term_frequency": 1
+      }
+    ],
+    "분석": [
+      {
+        "doc_idx": 4,
+        "term_frequency": 1
+      },
+      {
+        "doc_idx": 17,
+        "term_frequency": 1
+      }
+    ],
+    "최적": [
+      {
+        "doc_idx": 18,
         "term_frequency": 1
       }
     ],
@@ -162,33 +265,13 @@
         "term_frequency": 1
       }
     ],
-    "inverted": [
+    "성능": [
       {
-        "doc_idx": 9,
+        "doc_idx": 10,
         "term_frequency": 1
-      }
-    ],
-    "파이프라인": [
+      },
       {
-        "doc_idx": 12,
-        "term_frequency": 1
-      }
-    ],
-    "분석기": [
-      {
-        "doc_idx": 5,
-        "term_frequency": 1
-      }
-    ],
-    "Vulkan": [
-      {
-        "doc_idx": 13,
-        "term_frequency": 1
-      }
-    ],
-    "index": [
-      {
-        "doc_idx": 9,
+        "doc_idx": 18,
         "term_frequency": 1
       }
     ],
@@ -198,129 +281,25 @@
         "term_frequency": 1
       }
     ],
-    "기초": [
-      {
-        "doc_idx": 15,
-        "term_frequency": 1
-      }
-    ],
-    "콜": [
-      {
-        "doc_idx": 2,
-        "term_frequency": 1
-      }
-    ],
-    "IDF": [
-      {
-        "doc_idx": 16,
-        "term_frequency": 1
-      }
-    ],
-    "Rust": [
-      {
-        "doc_idx": 1,
-        "term_frequency": 1
-      },
-      {
-        "doc_idx": 7,
-        "term_frequency": 1
-      },
-      {
-        "doc_idx": 14,
-        "term_frequency": 1
-      },
-      {
-        "doc_idx": 18,
-        "term_frequency": 1
-      }
-    ],
-    "메모리": [
-      {
-        "doc_idx": 15,
-        "term_frequency": 1
-      }
-    ],
-    "차이점": [
-      {
-        "doc_idx": 16,
-        "term_frequency": 1
-      }
-    ],
-    "비교": [
-      {
-        "doc_idx": 7,
-        "term_frequency": 1
-      },
-      {
-        "doc_idx": 10,
-        "term_frequency": 1
-      }
-    ],
-    "시스템": [
-      {
-        "doc_idx": 2,
-        "term_frequency": 1
-      },
-      {
-        "doc_idx": 11,
-        "term_frequency": 1
-      },
-      {
-        "doc_idx": 14,
-        "term_frequency": 1
-      }
-    ],
-    "법": [
-      {
-        "doc_idx": 0,
-        "term_frequency": 1
-      }
-    ],
-    "인덱스": [
-      {
-        "doc_idx": 4,
-        "term_frequency": 1
-      }
-    ],
-    "구조": [
-      {
-        "doc_idx": 4,
-        "term_frequency": 1
-      },
-      {
-        "doc_idx": 17,
-        "term_frequency": 1
-      }
-    ],
-    "알고리즘": [
-      {
-        "doc_idx": 6,
-        "term_frequency": 1
-      },
+    "랭킹": [
       {
         "doc_idx": 19,
         "term_frequency": 1
       }
     ],
-    "인터럽트와": [
+    "구현": [
       {
-        "doc_idx": 2,
-        "term_frequency": 1
-      }
-    ],
-    "25": [
-      {
-        "doc_idx": 6,
+        "doc_idx": 1,
         "term_frequency": 1
       },
       {
-        "doc_idx": 16,
+        "doc_idx": 6,
         "term_frequency": 1
       }
     ],
-    "메모": [
+    "사용": [
       {
-        "doc_idx": 6,
+        "doc_idx": 5,
         "term_frequency": 1
       }
     ],
@@ -330,195 +309,9 @@
         "term_frequency": 1
       }
     ],
-    "리눅스": [
-      {
-        "doc_idx": 3,
-        "term_frequency": 1
-      }
-    ],
-    "형태소": [
-      {
-        "doc_idx": 5,
-        "term_frequency": 1
-      }
-    ],
-    "BM": [
-      {
-        "doc_idx": 6,
-        "term_frequency": 1
-      },
-      {
-        "doc_idx": 16,
-        "term_frequency": 1
-      }
-    ],
-    "과정": [
-      {
-        "doc_idx": 8,
-        "term_frequency": 1
-      }
-    ],
-    "프로세스": [
-      {
-        "doc_idx": 3,
-        "term_frequency": 1
-      }
-    ],
-    "이해": [
-      {
-        "doc_idx": 3,
-        "term_frequency": 1
-      }
-    ],
     "원리": [
       {
         "doc_idx": 11,
-        "term_frequency": 1
-      }
-    ],
-    "엔진": [
-      {
-        "doc_idx": 1,
-        "term_frequency": 1
-      },
-      {
-        "doc_idx": 9,
-        "term_frequency": 1
-      },
-      {
-        "doc_idx": 19,
-        "term_frequency": 1
-      }
-    ],
-    "compute": [
-      {
-        "doc_idx": 13,
-        "term_frequency": 1
-      }
-    ],
-    "캐시": [
-      {
-        "doc_idx": 11,
-        "term_frequency": 1
-      }
-    ],
-    "async": [
-      {
-        "doc_idx": 7,
-        "term_frequency": 1
-      }
-    ],
-    "GPU": [
-      {
-        "doc_idx": 13,
-        "term_frequency": 1
-      }
-    ],
-    "스케줄": [
-      {
-        "doc_idx": 3,
-        "term_frequency": 1
-      }
-    ],
-    "MeCab": [
-      {
-        "doc_idx": 10,
-        "term_frequency": 1
-      }
-    ],
-    "정리": [
-      {
-        "doc_idx": 0,
-        "term_frequency": 1
-      },
-      {
-        "doc_idx": 12,
-        "term_frequency": 1
-      }
-    ],
-    "차이": [
-      {
-        "doc_idx": 2,
-        "term_frequency": 1
-      }
-    ],
-    "내부": [
-      {
-        "doc_idx": 17,
-        "term_frequency": 1
-      }
-    ],
-    "최적": [
-      {
-        "doc_idx": 18,
-        "term_frequency": 1
-      }
-    ],
-    "파일": [
-      {
-        "doc_idx": 11,
-        "term_frequency": 1
-      }
-    ],
-    "인터럽트": [
-      {
-        "doc_idx": 8,
-        "term_frequency": 1
-      }
-    ],
-    "Tantivy": [
-      {
-        "doc_idx": 14,
-        "term_frequency": 1
-      }
-    ],
-    "동작": [
-      {
-        "doc_idx": 11,
-        "term_frequency": 1
-      }
-    ],
-    "데이터베이스": [
-      {
-        "doc_idx": 4,
-        "term_frequency": 1
-      }
-    ],
-    "TF": [
-      {
-        "doc_idx": 16,
-        "term_frequency": 1
-      }
-    ],
-    "tokenizer": [
-      {
-        "doc_idx": 17,
-        "term_frequency": 1
-      }
-    ],
-    "처리": [
-      {
-        "doc_idx": 8,
-        "term_frequency": 1
-      }
-    ],
-    "관리": [
-      {
-        "doc_idx": 15,
-        "term_frequency": 1
-      }
-    ],
-    "Kiwi": [
-      {
-        "doc_idx": 5,
-        "term_frequency": 1
-      },
-      {
-        "doc_idx": 10,
-        "term_frequency": 1
-      },
-      {
-        "doc_idx": 17,
         "term_frequency": 1
       }
     ],
@@ -540,19 +333,89 @@
         "term_frequency": 1
       }
     ],
-    "랭킹": [
+    "엔진": [
+      {
+        "doc_idx": 1,
+        "term_frequency": 1
+      },
+      {
+        "doc_idx": 9,
+        "term_frequency": 1
+      },
       {
         "doc_idx": 19,
         "term_frequency": 1
       }
     ],
-    "링": [
+    "형태소": [
       {
-        "doc_idx": 3,
+        "doc_idx": 5,
         "term_frequency": 1
       }
     ],
-    "분석": [
+    "IDF": [
+      {
+        "doc_idx": 16,
+        "term_frequency": 1
+      }
+    ],
+    "파이프라인": [
+      {
+        "doc_idx": 12,
+        "term_frequency": 1
+      }
+    ],
+    "시스템": [
+      {
+        "doc_idx": 2,
+        "term_frequency": 1
+      },
+      {
+        "doc_idx": 11,
+        "term_frequency": 1
+      },
+      {
+        "doc_idx": 14,
+        "term_frequency": 1
+      }
+    ],
+    "Rust": [
+      {
+        "doc_idx": 1,
+        "term_frequency": 1
+      },
+      {
+        "doc_idx": 7,
+        "term_frequency": 1
+      },
+      {
+        "doc_idx": 14,
+        "term_frequency": 1
+      },
+      {
+        "doc_idx": 18,
+        "term_frequency": 1
+      }
+    ],
+    "법": [
+      {
+        "doc_idx": 0,
+        "term_frequency": 1
+      }
+    ],
+    "동작": [
+      {
+        "doc_idx": 11,
+        "term_frequency": 1
+      }
+    ],
+    "만들": [
+      {
+        "doc_idx": 9,
+        "term_frequency": 1
+      }
+    ],
+    "구조": [
       {
         "doc_idx": 4,
         "term_frequency": 1
@@ -562,67 +425,59 @@
         "term_frequency": 1
       }
     ],
-    "HashMap": [
+    "BM": [
       {
-        "doc_idx": 18,
-        "term_frequency": 1
-      }
-    ],
-    "운영": [
-      {
-        "doc_idx": 0,
+        "doc_idx": 6,
         "term_frequency": 1
       },
       {
-        "doc_idx": 8,
-        "term_frequency": 1
-      },
-      {
-        "doc_idx": 15,
+        "doc_idx": 16,
         "term_frequency": 1
       }
     ],
-    "사용": [
-      {
-        "doc_idx": 5,
-        "term_frequency": 1
-      }
-    ],
-    "성능": [
-      {
-        "doc_idx": 10,
-        "term_frequency": 1
-      },
-      {
-        "doc_idx": 18,
-        "term_frequency": 1
-      }
-    ],
-    "기반": [
-      {
-        "doc_idx": 13,
-        "term_frequency": 1
-      }
-    ],
-    "구현": [
-      {
-        "doc_idx": 1,
-        "term_frequency": 1
-      },
+    "메모": [
       {
         "doc_idx": 6,
         "term_frequency": 1
       }
     ],
-    "runtime": [
+    "콜": [
       {
-        "doc_idx": 7,
+        "doc_idx": 2,
         "term_frequency": 1
       }
     ],
-    "만들": [
+    "인덱스": [
       {
-        "doc_idx": 9,
+        "doc_idx": 4,
+        "term_frequency": 1
+      }
+    ],
+    "인터럽트와": [
+      {
+        "doc_idx": 2,
+        "term_frequency": 1
+      }
+    ],
+    "MeCab": [
+      {
+        "doc_idx": 10,
+        "term_frequency": 1
+      }
+    ],
+    "스케줄": [
+      {
+        "doc_idx": 3,
+        "term_frequency": 1
+      }
+    ],
+    "25": [
+      {
+        "doc_idx": 6,
+        "term_frequency": 1
+      },
+      {
+        "doc_idx": 16,
         "term_frequency": 1
       }
     ],
@@ -633,6 +488,152 @@
       },
       {
         "doc_idx": 19,
+        "term_frequency": 1
+      }
+    ],
+    "비교": [
+      {
+        "doc_idx": 7,
+        "term_frequency": 1
+      },
+      {
+        "doc_idx": 10,
+        "term_frequency": 1
+      }
+    ],
+    "GPU": [
+      {
+        "doc_idx": 13,
+        "term_frequency": 1
+      }
+    ],
+    "파일": [
+      {
+        "doc_idx": 11,
+        "term_frequency": 1
+      }
+    ],
+    "차이": [
+      {
+        "doc_idx": 2,
+        "term_frequency": 1
+      }
+    ],
+    "index": [
+      {
+        "doc_idx": 9,
+        "term_frequency": 1
+      }
+    ],
+    "HashMap": [
+      {
+        "doc_idx": 18,
+        "term_frequency": 1
+      }
+    ],
+    "캐시": [
+      {
+        "doc_idx": 11,
+        "term_frequency": 1
+      }
+    ],
+    "데이터베이스": [
+      {
+        "doc_idx": 4,
+        "term_frequency": 1
+      }
+    ],
+    "차이점": [
+      {
+        "doc_idx": 16,
+        "term_frequency": 1
+      }
+    ],
+    "기초": [
+      {
+        "doc_idx": 15,
+        "term_frequency": 1
+      }
+    ],
+    "메모리": [
+      {
+        "doc_idx": 15,
+        "term_frequency": 1
+      }
+    ],
+    "분석기": [
+      {
+        "doc_idx": 5,
+        "term_frequency": 1
+      }
+    ],
+    "Vulkan": [
+      {
+        "doc_idx": 13,
+        "term_frequency": 1
+      }
+    ],
+    "처리": [
+      {
+        "doc_idx": 8,
+        "term_frequency": 1
+      }
+    ],
+    "인터럽트": [
+      {
+        "doc_idx": 8,
+        "term_frequency": 1
+      }
+    ],
+    "리눅스": [
+      {
+        "doc_idx": 3,
+        "term_frequency": 1
+      }
+    ],
+    "tokenizer": [
+      {
+        "doc_idx": 17,
+        "term_frequency": 1
+      }
+    ],
+    "정리": [
+      {
+        "doc_idx": 0,
+        "term_frequency": 1
+      },
+      {
+        "doc_idx": 12,
+        "term_frequency": 1
+      }
+    ],
+    "링": [
+      {
+        "doc_idx": 3,
+        "term_frequency": 1
+      }
+    ],
+    "기반": [
+      {
+        "doc_idx": 13,
+        "term_frequency": 1
+      }
+    ],
+    "렌더링": [
+      {
+        "doc_idx": 12,
+        "term_frequency": 1
+      }
+    ],
+    "관리": [
+      {
+        "doc_idx": 15,
+        "term_frequency": 1
+      }
+    ],
+    "Tantivy": [
+      {
+        "doc_idx": 14,
         "term_frequency": 1
       }
     ]
