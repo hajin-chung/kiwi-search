@@ -10,7 +10,7 @@ use clap::{Parser, Subcommand};
 
 use daemon::run_daemon;
 use engine::SearchEngine;
-use index::{read_documents, SearchIndex};
+use index::{SearchIndex, read_documents};
 use logger::set_debug_log;
 use tokenizer::create_kiwi;
 
@@ -46,6 +46,9 @@ enum Command {
     Daemon {
         #[arg(short, long)]
         index: String,
+
+        #[arg(short, long)]
+        simple: bool,
     },
 }
 
@@ -97,13 +100,14 @@ fn main() -> Result<()> {
             println!("{}", serde_json::to_string_pretty(&output)?);
         }
 
-        Command::Daemon { index } => {
+        Command::Daemon { index, simple } => {
             let index = SearchIndex::load(&index)?;
             debug_log!("loaded index");
 
             let engine = SearchEngine::new(kiwi, index);
 
-            run_daemon(engine)?;
+            debug_log!("starting daemon, simple={}", simple);
+            run_daemon(engine, simple)?;
         }
     }
 

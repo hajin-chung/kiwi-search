@@ -28,7 +28,7 @@ struct SearchResult {
     document: Value,
 }
 
-pub fn run_daemon(engine: SearchEngine) -> Result<()> {
+pub fn run_daemon(engine: SearchEngine, simple: bool) -> Result<()> {
     let stdin = io::stdin();
     let mut stdout = io::BufWriter::new(io::stdout());
 
@@ -39,7 +39,17 @@ pub fn run_daemon(engine: SearchEngine) -> Result<()> {
             continue;
         }
 
-        let response = match serde_json::from_str::<DaemonRequest>(&line) {
+        let request = if simple {
+            Ok(DaemonRequest {
+                id: 1,
+                query: line,
+                limit: Some(100),
+            })
+        } else {
+            serde_json::from_str::<DaemonRequest>(&line)
+        };
+
+        let response = match request {
             Ok(request) => handle_daemon_request(&engine, request),
             Err(err) => DaemonResponse {
                 id: 0,
@@ -48,7 +58,11 @@ pub fn run_daemon(engine: SearchEngine) -> Result<()> {
             },
         };
 
-        serde_json::to_writer(&mut stdout, &response)?;
+        if simple {
+            serde_json::to_writer_pretty(&mut stdout, &response)?;
+        } else {
+            serde_json::to_writer(&mut stdout, &response)?;
+        }
         writeln!(stdout)?;
         stdout.flush()?;
     }
